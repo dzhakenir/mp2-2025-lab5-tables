@@ -54,7 +54,7 @@ public:
         op_count = 0;
         int pos = binarySearch(name);
         op_count++;
-        if(strcmp(name, rows[pos].name) == 0)throw"this name already exists";
+        if(strcmp(name, rows[pos].name) == 0)throw invalid_argument("this name already exists");
         op_count++;
         if (sz == cap) {
             cap *= 2;
