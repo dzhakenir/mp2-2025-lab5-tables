@@ -56,9 +56,9 @@ TEST(OrderedTest, RemoveRow) {
 TEST(OrderedTest, Resize) {
     OrderedTable table;
     const int poly_num = 20;
-    char name[80] = "p_a";
+    char name[80] ;
     for (int i = 0; i < poly_num; i++) {
-        name[2] = 'a' + i;
+        sprintf(name, "p_%d", i);
 
         int powers[] = { i + 1 };
         double coefs[] = { i * 1.5 + 1 };
@@ -67,7 +67,7 @@ TEST(OrderedTest, Resize) {
     }
     EXPECT_EQ(table.size(), poly_num);
     for (int i = 0; i < poly_num; i++) {
-        name[2] = 'a' + i;
+        sprintf(name, "p_%d", i);
         polynomial* found = table.find(name);
         ASSERT_NE(found, nullptr);
         EXPECT_EQ(found->size(), i + 3);
